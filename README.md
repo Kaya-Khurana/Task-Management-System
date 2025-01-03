@@ -11,7 +11,7 @@ The Task Management System is a web-based application developed using ASP.NET MV
 5) Secure database integration for persistent task management.
    
 # Technologies Used
-# Backend: ASP.NET MVC Framework
-# Frontend: HTML, CSS, JavaScript, Bootstrap
-# Database: SQL Server Management Studio (SSMS)
-# IDE: Visual Studio
+ Backend: ASP.NET MVC Framework
+ Frontend: HTML, CSS, JavaScript, Bootstrap
+ Database: SQL Server Management Studio (SSMS)
+ IDE: Visual Studio
