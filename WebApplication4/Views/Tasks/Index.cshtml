@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebApplication4.Models.Task>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br /> <br />
+<h1 style="text-align: center; color: #3B9C9C; font-family: 'Poppins', sans-serif; margin-top: 20px;">Task Management System</h1>
+<br />
+
+<p style="text-align: center; margin: 20px 0;">
+    <a asp-action="Create"
+       style="background-color: #007bff; color: white; padding: 12px 25px; text-decoration: none;
+              border-radius: 5px; font-size: 16px; font-family: 'Poppins', sans-serif;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        Create New Task
+    </a>
+</p>
+<br />
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 0 5%;">
+    @foreach (var item in Model)
+    {
+        <div style="width: 300px; background-color: #fff; border: 1px solid #ddd; border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden; transition: transform 0.3s;">
+            <div style="padding: 20px;">
+                <h3 style="font-size: 20px; color: #333; font-family: 'Poppins', sans-serif; margin-bottom: 10px;">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h3>
+                <p style="color: #555; font-size: 14px; font-family: 'Roboto', sans-serif; margin-bottom: 15px;">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </p>
+                <p style="font-size: 14px; color: #007bff; font-family: 'Roboto', sans-serif; margin-bottom: 5px;">
+                    <strong>Due Date:</strong> @Html.DisplayFor(modelItem => item.DueDate)
+                </p>
+                <p style="font-size: 14px; color: @((item.IsCompleted) ? "#28a745" : "#dc3545"); font-family: 'Roboto', sans-serif; margin-bottom: 15px;">
+                    <strong>Status:</strong> @(item.IsCompleted ? "Completed" : "Pending")
+                </p>
+            </div>
+            <div style="background-color: #f8f9fa; padding: 15px; text-align: center;">
+                <a asp-action="Edit" asp-route-id="@item.Id"
+                   style="color: #007bff; text-decoration: none; margin-right: 10px;
+                      font-size: 14px; font-family: 'Roboto', sans-serif;">
+                    Edit
+                </a>
+                <a asp-action="Details" asp-route-id="@item.Id"
+                   style="color: #28a745; text-decoration: none; margin-right: 10px;
+                      font-size: 14px; font-family: 'Roboto', sans-serif;">
+                    Details
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.Id"
+                   style="color: #dc3545; text-decoration: none; font-size: 14px;
+                      font-family: 'Roboto', sans-serif;">
+                    Delete
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    a:hover {
+        text-decoration: underline;
+    }
+
+    div:hover {
+        transform: translateY(-5px);
+    }
+
+    body {
+        background-color: #FFF8E7;
+        font-family: 'Poppins', sans-serif;
+    }
+</style>

@@ -1,0 +1,66 @@
+﻿@model WebApplication4.Models.Task
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 style="text-align: center; color: #333; font-family: 'Poppins', sans-serif; margin-top: 20px;">Delete Task</h1>
+
+<div style="max-width: 600px; margin: 20px auto; background-color: #fff; padding: 30px; border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-family: 'Roboto', sans-serif;">
+    <h4 style="text-align: center; color: #dc3545; margin-bottom: 20px;">Are you sure you want to delete this task?</h4>
+    <hr style="margin-bottom: 20px;">
+
+    <dl class="row" style="font-size: 14px; line-height: 1.6;">
+        <dt class="col-sm-4" style="font-weight: bold; color: #333;">Title</dt>
+        <dd class="col-sm-8" style="color: #555;">@Html.DisplayFor(model => model.Title)</dd>
+
+        <dt class="col-sm-4" style="font-weight: bold; color: #333;">Description</dt>
+        <dd class="col-sm-8" style="color: #555;">@Html.DisplayFor(model => model.Description)</dd>
+
+        <dt class="col-sm-4" style="font-weight: bold; color: #333;">Due Date</dt>
+        <dd class="col-sm-8" style="color: #555;">@Html.DisplayFor(model => model.DueDate)</dd>
+
+        <dt class="col-sm-4" style="font-weight: bold; color: #333;">Completed</dt>
+        <dd class="col-sm-8" style="color: #555;">@Html.DisplayFor(model => model.IsCompleted)</dd>
+    </dl>
+
+    <form asp-action="Delete" style="margin-top: 20px; text-align: center;">
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit" class="btn btn-danger" style="padding: 10px 20px; font-size: 16px; border-radius: 5px;
+                font-family: 'Poppins', sans-serif; border: none; cursor: pointer;">
+            Confirm Delete
+        </button>
+
+        <a asp-action="Index" style="margin-left: 15px; padding: 10px 20px; font-size: 16px; border-radius: 5px;
+                font-family: 'Poppins', sans-serif; text-decoration: none; background-color: #007bff; color: #fff;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            Cancel
+        </a>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #FFEFD5;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    button.btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        background-color: #0056b3;
+    }
+
+    dl.row dt {
+        margin-bottom: 10px;
+    }
+
+    dl.row dd {
+        margin-bottom: 10px;
+    }
+</style>

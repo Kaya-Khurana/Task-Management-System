@@ -1,0 +1,88 @@
+﻿@model WebApplication4.Models.Task
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="text-align: center; color: #333; font-family: 'Poppins', sans-serif; margin-top: 20px;">Edit Task</h1>
+
+<div style="max-width: 600px; margin: 20px auto; background-color: #fff; padding: 30px; border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-family: 'Roboto', sans-serif;">
+    <h4 style="text-align: center; color: #007bff; margin-bottom: 20px;">Update Task Details</h4>
+    <hr style="margin-bottom: 20px;">
+
+    <form asp-action="Edit" style="font-size: 14px;">
+        <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom: 20px;"></div>
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label asp-for="Title" class="control-label" style="font-weight: 600;">Task Title</label>
+            <input asp-for="Title" class="form-control"
+                   style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;" />
+            <span asp-validation-for="Title" class="text-danger" style="font-size: 12px;"></span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label asp-for="Description" class="control-label" style="font-weight: 600;">Description</label>
+            <textarea asp-for="Description" class="form-control" rows="3"
+                      style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+            <span asp-validation-for="Description" class="text-danger" style="font-size: 12px;"></span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label asp-for="DueDate" class="control-label" style="font-weight: 600;">Due Date</label>
+            <input asp-for="DueDate" class="form-control" type="date"
+                   style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;" />
+            <span asp-validation-for="DueDate" class="text-danger" style="font-size: 12px;"></span>
+        </div>
+
+        <div class="form-group form-check" style="margin-bottom: 20px;">
+            <label class="form-check-label" style="font-weight: 600;">
+                <input class="form-check-input" asp-for="IsCompleted"
+                       style="margin-right: 10px;" /> Mark as Completed
+            </label>
+        </div>
+
+        <div class="form-group" style="text-align: center;">
+            <input type="submit" value="Save Changes"
+                   class="btn btn-primary"
+                   style="padding: 10px 20px; font-size: 16px; border-radius: 5px; font-family: 'Poppins', sans-serif;
+                          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: none; cursor: pointer;" />
+        </div>
+    </form>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a asp-action="Index"
+           style="color: #007bff; text-decoration: none; font-family: 'Roboto', sans-serif; font-size: 14px;">
+            Back to List
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    input:focus, textarea:focus {
+        outline: none;
+        border: 1px solid #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    form .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    body {
+        background-color: #FFEFD5;
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
