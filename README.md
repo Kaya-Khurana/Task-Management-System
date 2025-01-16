@@ -16,7 +16,6 @@ The Task Management System is a web-based application developed using ASP.NET MV
  Database: SQL Server Management Studio (SSMS)
  IDE: Visual Studio
 **Live Preview of Project**
-![Image](https://github.com/user-attachments/assets/57da1763-8a1d-4e98-bb59-c346b2218a1f)
 
 ![Image](https://github.com/user-attachments/assets/37645337-b910-4e5e-8e50-deb20ba0fcaf)
 
